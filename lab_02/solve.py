@@ -1,6 +1,5 @@
 import random
 import numpy
-from prettytable import PrettyTable
 import matplotlib.pyplot as plt
 import sys  # sys нужен для передачи argv в QApplication
 from PyQt6 import QtWidgets
