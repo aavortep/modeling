@@ -119,6 +119,6 @@ class Ui_MainWindow(object):
         self.label_3_2.setText(_translate("MainWindow", "0"))
         self.label_3_3.setText(_translate("MainWindow", "0"))
         self.push_comp.setText(_translate("MainWindow", "Рассчитать случайность"))
-        self.label.setText(_translate("MainWindow", "Случайные"))
+        self.label.setText(_translate("MainWindow", "Собственные"))
         self.label_2.setText(_translate("MainWindow", "Алгоритмический метод"))
         self.label_3.setText(_translate("MainWindow", "Табличный метод"))

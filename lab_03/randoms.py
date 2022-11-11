@@ -7,6 +7,7 @@ import tables
 
 
 COUNT = 100
+STEP = 1
 
 
 class Tables(QtWidgets.QMainWindow, tables.Ui_MainWindow):
@@ -15,15 +16,15 @@ class Tables(QtWidgets.QMainWindow, tables.Ui_MainWindow):
         self.setupUi(self)  # Это нужно для инициализации нашего дизайна
         self.table_1.setRowCount(10)
         self.table_1.setColumnCount(1)
-        self.generate()
+        #self.generate()
 
-        self.table_2.setRowCount(COUNT)
+        self.table_2.setRowCount(COUNT // STEP)
         self.table_2.setColumnCount(3)
         self.rand_alg(0, 10, 0)
         self.rand_alg(10, 100, 1)
         self.rand_alg(100, 1000, 2)
 
-        self.table_3.setRowCount(COUNT)
+        self.table_3.setRowCount(COUNT // STEP)
         self.table_3.setColumnCount(3)
         self.rand_table()
 
@@ -39,10 +40,13 @@ class Tables(QtWidgets.QMainWindow, tables.Ui_MainWindow):
         a = 1664525
         c = 1013904223
         current = 10
+        seq = []
         for i in range(COUNT):
             current = (a * current + c) % m
             result = int(low + current % (high - low))
-            self.table_2.setItem(i, col, QTableWidgetItem(str(result)))
+            seq.append(result)
+        for i in range(0, COUNT, STEP):
+            self.table_2.setItem(i // STEP, col, QTableWidgetItem(str(seq[i])))
 
     def rand_table(self):
         numbers = set()
@@ -59,18 +63,56 @@ class Tables(QtWidgets.QMainWindow, tables.Ui_MainWindow):
         one_digit = [int(i) % 10 for i in numbers[:COUNT]]
         two_digits = [int(i) % 90 + 10 for i in numbers[COUNT:COUNT * 2]]
         three_digits = [int(i) % 900 + 100 for i in numbers[COUNT * 2:3 * COUNT]]
-        for i in range(len(one_digit)):
-            self.table_3.setItem(i, 0, QTableWidgetItem(str(one_digit[i])))
-        for i in range(len(two_digits)):
-            self.table_3.setItem(i, 1, QTableWidgetItem(str(two_digits[i])))
-        for i in range(len(three_digits)):
-            self.table_3.setItem(i, 2, QTableWidgetItem(str(three_digits[i])))
+        for i in range(0, len(one_digit), STEP):
+            self.table_3.setItem(i // STEP, 0, QTableWidgetItem(str(one_digit[i])))
+        for i in range(0, len(two_digits), STEP):
+            self.table_3.setItem(i // STEP, 1, QTableWidgetItem(str(two_digits[i])))
+        for i in range(0, len(three_digits), STEP):
+            self.table_3.setItem(i // STEP, 2, QTableWidgetItem(str(three_digits[i])))
 
-    def _criterion(self):
-        return 0  # TODO
+    def _criterion(self, seq):
+        bin_seq = ""
+        for num in seq:
+            bin_seq += bin(num)[2:]
+        ones = 0
+        for digit in bin_seq:
+            if digit == '1':
+                ones += 1
+        p = ones / len(bin_seq)
+        return p
+
+    def _get_sequence(self, table_name, col_num, rows_num):
+        seq = []
+        table = getattr(self, table_name)
+        for i in range(rows_num):
+            num = table.item(i, col_num).text()
+            seq.append(int(num))
+        return seq
 
     def check_randomness(self):
-        return 0  # TODO
+        seq = self._get_sequence("table_1", 0, 10)
+        p = self._criterion(seq)
+        self.label_1_1.setText(str(p)[:8])
+
+        seq = self._get_sequence("table_2", 0, COUNT)
+        p = self._criterion(seq)
+        self.label_2_1.setText(str(p)[:8])
+        seq = self._get_sequence("table_2", 1, COUNT)
+        p = self._criterion(seq)
+        self.label_2_2.setText(str(p)[:8])
+        seq = self._get_sequence("table_2", 2, COUNT)
+        p = self._criterion(seq)
+        self.label_2_3.setText(str(p)[:8])
+
+        seq = self._get_sequence("table_3", 0, COUNT)
+        p = self._criterion(seq)
+        self.label_3_1.setText(str(p)[:8])
+        seq = self._get_sequence("table_3", 1, COUNT)
+        p = self._criterion(seq)
+        self.label_3_2.setText(str(p)[:8])
+        seq = self._get_sequence("table_3", 2, COUNT)
+        p = self._criterion(seq)
+        self.label_3_3.setText(str(p)[:8])
 
 
 if __name__ == '__main__':

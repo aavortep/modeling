@@ -203,7 +203,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Случайные</string>
+     <string>Собственные</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
