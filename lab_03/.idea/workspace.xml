@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5dd9518c-61f0-4ed3-b9b6-ba4233855d58" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/randoms.py" beforeDir="false" afterPath="$PROJECT_DIR$/randoms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/tables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tables.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tables.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/more p.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/more p.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667998585154</updated>
       <workItem from="1667998596094" duration="9383000" />
-      <workItem from="1668112398986" duration="4784000" />
+      <workItem from="1668112398986" duration="6041000" />
     </task>
     <servers />
   </component>
@@ -79,6 +77,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/lab_03$randoms.coverage" NAME="randoms Coverage Results" MODIFIED="1668167410480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/lab_03$randoms.coverage" NAME="randoms Coverage Results" MODIFIED="1668168747595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
